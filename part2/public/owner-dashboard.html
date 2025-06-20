@@ -136,17 +136,8 @@
           error,
           submitWalkRequest
         };
-      }
-
-    },
-    methods: async function helperLogout(path) {
-        try {
-            const res = await axios.post(path);
-            return 0;
-        } catch (e) {
-            return 1;
-        }
-
+      },
+      
     }).mount('#app');
   </script>
 
