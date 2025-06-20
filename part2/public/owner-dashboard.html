@@ -129,7 +129,10 @@
 
         async function logout() {
           try {
+            // logging out
             const res = await axios.post('/api/users/logout');
+
+            // redirecting to home page
             window.location.href = '/';
           } catch (err) {
             console.error('Logout error:', err);
