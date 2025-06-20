@@ -70,7 +70,7 @@ footer h4 {
     font-weight: normal;
 }
 
-.post .date
+.post .date 
     float: right;
 }
 
@@ -104,8 +104,8 @@ button:hover {
     float: right;
 }
 
-input {
-    width: 40%;
+#ask input[type="text"], #ask textarea {
+    width: 90%;
     margin-bottom: 0.5em;
 }
 
