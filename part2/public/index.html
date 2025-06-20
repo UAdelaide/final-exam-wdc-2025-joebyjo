@@ -59,6 +59,9 @@
 
           try {
 
+            const res = await axios.get('https://dog.ceo/api/breeds/image/random');
+                const data = res.data;
+
           } catch (err) {
 
           }
