@@ -37,7 +37,7 @@ var app = express();
     await connection.end();
 
     // Now connect to the created database
-    db = await mysql.createConnection({
+    const db = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
       password: '',
