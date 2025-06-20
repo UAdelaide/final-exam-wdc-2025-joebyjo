@@ -5,6 +5,8 @@ var logger = require('morgan');
 // const db = require('./services/db');
 var mysql = require('mysql2/promise');
 
+
+// setting up database
 (async () => {
   try {
     // Connect to MySQL without specifying a database
