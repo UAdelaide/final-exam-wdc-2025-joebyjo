@@ -63,7 +63,7 @@ router.get('/dogs', async (req, res) => {
   try {
 
     if (!req.session.user || !req.session.user.user_id) {
-    return res.status(401).json({ error: 'Unauthenticated' });
+      return res.status(401).json({ error: 'Unauthenticated' });
     }
 
     const [rows] = await db.query(`
