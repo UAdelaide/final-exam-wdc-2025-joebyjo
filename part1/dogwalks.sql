@@ -83,4 +83,4 @@ VALUES
 
 INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES
-((SELECT dog_id FROM Dogs WHERE name = 'max'),'2025-06-10 08:00:00', 30, 'parklands', 'open'),
+(),
