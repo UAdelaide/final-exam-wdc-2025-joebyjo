@@ -83,4 +83,4 @@ VALUES
 
 INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES
-(1, 2, accepted)
+(1, 2, 'accepted')
