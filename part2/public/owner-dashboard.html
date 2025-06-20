@@ -127,7 +127,7 @@
 
         async function logout() {
           try {
-            const res = await axios.post(path);
+            const res = await axios.post('/api/users/logout');
           } catch (err) {
             console.error('Logout error:', err);
             alert('Logout failed. Please try again.');
