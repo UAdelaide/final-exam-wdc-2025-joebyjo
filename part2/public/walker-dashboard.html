@@ -57,7 +57,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = 3;
+        var user = 3;
 
         async function loadWalkRequests() {
           try {
@@ -73,11 +73,11 @@
           try {
             const me = await axios.get('/api/users/me');
             const id = me.data.user_id;
-            return id;
+            user=id;
           } catch (err) {
             error.value = err.message;
             message.value = '';
-            
+
           }
         }
 
