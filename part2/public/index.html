@@ -60,8 +60,8 @@
           try {
 
             const res = await axios.post('/api/auth/login', {
-                username: username,
-                password: password
+                username: this.username,
+                password: this.password
             });
             const data = res.data;
 
