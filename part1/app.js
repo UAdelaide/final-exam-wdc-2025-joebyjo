@@ -11,18 +11,6 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
-// console.log(await db.query('select * from Users'));
-
-
-// (async () => {
-//   try {
-//     console.log(await db.query('select * from Users'))
-//   } catch (err) {
-//     console.error('not working', err);
-//   }
-// })();
-
-
 (async () => {
   try {
     // Connect to MySQL without specifying a database
