@@ -58,6 +58,21 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// GET all dogs of current user
+router.get('/dogs', async (req, res) => {
+  try {
+    const [rows] = await db.query(`
+      SELECT dog_id, name FROM Dogs D
+      INNER JOIN Users U on U.user_id=D.owner_id
+      WHERE D.owner_id = ?
+    `,[req.user.user_id]);
+    res.json(rows);
+  } catch (error) {
+    console.error('SQL Error:', error);
+    res.status(500).json({ error: 'Failed to fetch walk requests' });
+  }
+});
+
 // added logout route
 router.post('/logout', (req, res) => {
     req.session.destroy(() => {
