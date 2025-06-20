@@ -10,12 +10,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(session({ // for sessions
-    secret: '',
-    store: sessionStore,
+    secret: 'secretsecret',
     resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 // stay logged in for 24 hours
+    saveUninitialized: true,
+    cookie: { secure: false }
     }
 }));
 
