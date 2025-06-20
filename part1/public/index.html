@@ -16,7 +16,7 @@
         <button @click="showDog=!showDog">Click</button>
         <button>New Dog</button>
 
-        <div class="dog-info">
+        <div class="dog-info" v-if="showDog">
             Name: Randy
             Breed: chihuaha
         </div>
