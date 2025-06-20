@@ -10,12 +10,12 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
-console.log(await db.query('select * from Users'));
+// console.log(await db.query('select * from Users'));
 
 
 (async () => {
   try {
-    
+    await db.query('select * from Users')
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
