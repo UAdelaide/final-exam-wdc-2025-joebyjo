@@ -13,13 +13,13 @@ var app = express();
 // console.log(await db.query('select * from Users'));
 
 
-(async () => {
-  try {
-    console.log(await db.query('select * from Users'))
-  } catch (err) {
-    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
-  }
-})();
+// (async () => {
+//   try {
+//     console.log(await db.query('select * from Users'))
+//   } catch (err) {
+//     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+//   }
+// })();
 
 app.use(logger('dev'));
 app.use(express.json());
