@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../services/db');
-
+const path = require('path');
 
 
 router.get('/', async function (req, res, next) {
-    res.sendFile(path.join(__dirname, '..'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 
