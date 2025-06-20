@@ -137,7 +137,17 @@
           submitWalkRequest
         };
       },
-      async 
+      async function helperLogout(path) {
+        try {
+            // eslint-disable-next-line no-undef
+            const res = await axios.post(path);
+            return 0;
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            return 1;
+        }
+    }
+
     }).mount('#app');
   </script>
 
