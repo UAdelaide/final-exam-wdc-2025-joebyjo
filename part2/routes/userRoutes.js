@@ -61,6 +61,11 @@ router.post('/login', async (req, res) => {
 // GET all dogs of current user
 router.get('/dogs', async (req, res) => {
   try {
+
+    if (!req.session.user || !req.session.user.user_id) {
+    return res.status(401).json({ error: 'Unauthenticated' });
+    }
+
     const [rows] = await db.query(`
       SELECT dog_id, name FROM Dogs D
       INNER JOIN Users U on U.user_id=D.owner_id
