@@ -111,7 +111,7 @@ var app = express();
 
     // insert dummy data into table
     await db.execute(`
-      INSERT INTO Users (username, email, password_hash, role)
+    INSERT INTO Users (username, email, password_hash, role)
     VALUES
     ('alice123', 'alice@example.com', 'hashed123', 'owner'),
     ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
@@ -121,24 +121,24 @@ var app = express();
     `);
 
     await db.execute(`
-      INSERT INTO Dogs (owner_id, name, size)
-VALUES
-((SELECT user_id FROM Users WHERE username = 'alice123'), 'max', 'medium'),
-((SELECT user_id FROM Users WHERE username = 'carol123'), 'bella', 'small'),
-((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
-((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
-((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
+    INSERT INTO Dogs (owner_id, name, size)
+    VALUES
+    ((SELECT user_id FROM Users WHERE username = 'alice123'), 'max', 'medium'),
+    ((SELECT user_id FROM Users WHERE username = 'carol123'), 'bella', 'small'),
+    ((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
+    ((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
+    ((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
 
     `);
 
     await db.execute(`
-      INSERT INTO Users (username, email, password_hash, role)
+    INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
     VALUES
-    ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-    ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-    ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-    ('joe', 'joe@example.com', 'hashed69', 'owner'),
-    ('messi', 'messi@example.com', 'hashed10', 'owner');
+    ((SELECT dog_id FROM Dogs WHERE name = 'max'),'2025-06-10 08:00:00', 30, 'parklands', 'open'),
+    ((SELECT dog_id FROM Dogs WHERE name = 'bella'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+    ((SELECT dog_id FROM Dogs WHERE name = 'abc'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+    ((SELECT dog_id FROM Dogs WHERE name = 'xyz'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+    ((SELECT dog_id FROM Dogs WHERE name = 'ghi'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted');
     `);
 
   } catch (err) {
