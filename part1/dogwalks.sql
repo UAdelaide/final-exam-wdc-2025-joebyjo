@@ -64,5 +64,11 @@ VALUES
 ('messi', 'messi@example.com', 'hashed10', 'owner');
 
 
-
+INSERT INTO Dogs (owner_id, name, size)
+VALUES
+((SELECT user_id FROM Users WHERE username = 'alice123'), 'max', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'bella', 'small'),
+((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
+((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
 
