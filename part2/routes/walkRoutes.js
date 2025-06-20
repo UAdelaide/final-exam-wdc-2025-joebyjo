@@ -59,20 +59,7 @@ router.post('/:id/apply', async (req, res) => {
   }
 });
 
-// GET all dogs of current user
-router.get('/dogs', async (req, res) => {
-  try {
-    const [rows] = await db.query(`
-      SELECT dog_id, name FROM Dogs D
-      INNER JOIN Users U on U.user_id=D.owner_id
-      WHERE D.owner_id = ?
-    `,[]);
-    res.json(rows);
-  } catch (error) {
-    console.error('SQL Error:', error);
-    res.status(500).json({ error: 'Failed to fetch walk requests' });
-  }
-});
+
 
 
 module.exports = router;
