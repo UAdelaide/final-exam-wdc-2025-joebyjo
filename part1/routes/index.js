@@ -37,7 +37,8 @@ router.get('/walkrequests/open', async function (req, res, next) {
 router.get('/walkers/summary', async function (req, res, next) {
     try {
         const [completedWalks] = await db.query(
-            ``
+            `SELECT COUNT(*) FROM 
+            `
         );
 
         res.send(rows);
