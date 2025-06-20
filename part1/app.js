@@ -43,7 +43,7 @@ var app = express();
       database: 'DogWalkService'
     });
 
-    // Create a table if it doesn't exist
+    // create table and insert if it doesn't exist
     await db.execute(`
       CREATE TABLE IF NOT EXISTS books (
         id INT AUTO_INCREMENT PRIMARY KEY,
