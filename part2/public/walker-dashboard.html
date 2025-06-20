@@ -69,13 +69,15 @@
           }
         }
 
-        async function applyToWalk(requestId) {
+        async function getUserId() {
           try {
             const me = await axios.get('/api/users/me');
             const id = me.data.user_id;
+            
+        }
 
-
-
+        async function applyToWalk(requestId) {
+          try {
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
