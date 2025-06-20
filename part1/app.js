@@ -139,8 +139,8 @@ var app = express();
     }
 
 
-    const [dogsCount] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-    if (dogsCount[0].count === 0) {
+    const [WalkRequestsCount] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+    if (WalkRequestsCount[0].count === 0) {
     await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES
