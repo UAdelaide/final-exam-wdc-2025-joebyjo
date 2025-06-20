@@ -37,6 +37,7 @@
             <label class="form-label">Dog ID</label>
             <select id="choose-dog" v-model="form.dog_id">
               <option v-for="dog in dogs" :value="dog.dog_id">{{ dog.name }}</option>
+              <option v-for="dog in dogs" :value="dog.dog_id">{{ dog.name }}</option>
             </select>
           </div>
           <div class="mb-3">
@@ -110,7 +111,7 @@
         async function loadDogs() {
           try {
             const res = await axios.get('/api/users/dogs');
-            dogs.value = res.data; 
+            dogs.value = res.data;
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
