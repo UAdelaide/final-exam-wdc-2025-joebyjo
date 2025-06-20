@@ -138,15 +138,19 @@ var app = express();
         `);
     }
 
+
+    const [dogsCount] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (dogsCount[0].count === 0) {
     await db.execute(`
-    INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
-    VALUES
-    ((SELECT dog_id FROM Dogs WHERE name = 'max'),'2025-06-10 08:00:00', 30, 'parklands', 'open'),
-    ((SELECT dog_id FROM Dogs WHERE name = 'bella'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
-    ((SELECT dog_id FROM Dogs WHERE name = 'abc'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
-    ((SELECT dog_id FROM Dogs WHERE name = 'xyz'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
-    ((SELECT dog_id FROM Dogs WHERE name = 'ghi'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted');
-    `);
+        INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+        VALUES
+        ((SELECT dog_id FROM Dogs WHERE name = 'max'),'2025-06-10 08:00:00', 30, 'parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'bella'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'abc'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'xyz'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'ghi'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted');
+        `);
+    }
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
