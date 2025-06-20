@@ -65,6 +65,8 @@
             });
             const data = res.data;
 
+            console.log(data)
+
             if (data.role=='owner') {
                 window.location.href = '/owner-dashboard.html';
             } else if (data.role=='walker') {
