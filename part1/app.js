@@ -112,7 +112,7 @@ var app = express();
 
     // insert dummy data into table
 
-    const [user] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    const [userCount] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     await db.execute(`
     INSERT INTO Users (username, email, password_hash, role)
     VALUES
