@@ -113,17 +113,17 @@ var app = express();
     // insert dummy data into table
 
     const [userCount] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-    {
+    if (rows[0].count === 0) {
         await db.execute(`
-    INSERT INTO Users (username, email, password_hash, role)
-    VALUES
-    ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-    ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-    ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-    ('joe', 'joe@example.com', 'hashed69', 'owner'),
-    ('messi', 'messi@example.com', 'hashed10', 'owner');
-    `);
-}
+        INSERT INTO Users (username, email, password_hash, role)
+        VALUES
+        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+        ('joe', 'joe@example.com', 'hashed69', 'owner'),
+        ('messi', 'messi@example.com', 'hashed10', 'owner');
+        `);
+    }
 
     await db.execute(`
     INSERT INTO Dogs (owner_id, name, size)
