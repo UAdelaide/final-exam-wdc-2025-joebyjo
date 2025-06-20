@@ -17,7 +17,7 @@ var app = express();
 //   try {
 //     console.log(await db.query('select * from Users'))
 //   } catch (err) {
-//     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+//     console.error('not working', err);
 //   }
 // })();
 
