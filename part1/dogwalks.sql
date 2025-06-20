@@ -81,10 +81,6 @@ VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'ghi'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted');
 
 
-INSERT INTO WalkApplications (request_id, walker_id, applied_at, status)
+INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'max'),'2025-06-10 08:00:00', 30, 'parklands', 'open'),
-((SELECT dog_id FROM Dogs WHERE name = 'bella'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
-((SELECT dog_id FROM Dogs WHERE name = 'abc'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
-((SELECT dog_id FROM Dogs WHERE name = 'xyz'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
-((SELECT dog_id FROM Dogs WHERE name = 'ghi'),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted');
