@@ -60,7 +60,7 @@ router.post('/:id/apply', async (req, res) => {
 });
 
 // GET all dogs of current user
-router.get('/', async (req, res) => {
+router.get('/dogs', async (req, res) => {
   try {
     const [rows] = await db.query(`
       SELECT wr.*, d.name AS dog_name, d.size, u.username AS owner_name
