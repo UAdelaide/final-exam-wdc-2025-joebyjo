@@ -125,20 +125,20 @@
           }
         },
         async function logout() {
-      try {
-        const res = await fetch('/api/users/logout', {
-          method: 'POST'
-        });
+          try {
+            const res = await fetch('/api/users/logout', {
+              method: 'POST'
+            });
 
-        if (!res.ok) throw new Error('Logout failed');
+            if (!res.ok) throw new Error('Logout failed');
 
-        // Redirect to login or show confirmation
-        window.location.href = '/login.html'; // adjust this path as needed
-      } catch (err) {
-        console.error('Logout error:', err);
-        alert('Logout failed. Please try again.');
-      }
-    }
+            // Redirect to login or show confirmation
+            window.location.href = '/login.html'; // adjust this path as needed
+          } catch (err) {
+            console.error('Logout error:', err);
+            alert('Logout failed. Please try again.');
+          }
+        }
 
         onMounted(() => {
           loadWalks();
