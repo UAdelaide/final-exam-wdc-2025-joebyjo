@@ -57,14 +57,12 @@
         async login() {
 
           try {
-            // send post request with username 
+            // send post request with username
             const res = await axios.post('/api/users/login', {
                 username: this.username,
                 password: this.password
             });
             const data = res.data;
-
-            console.log(data);
 
             if (data.user.role=='owner') {
                 window.location.href = '/owner-dashboard.html';
