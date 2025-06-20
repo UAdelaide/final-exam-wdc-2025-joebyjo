@@ -128,15 +128,16 @@ var app = express();
     const [userCount] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
     await db.execute(`
-    INSERT INTO Dogs (owner_id, name, size)
-    VALUES
-    ((SELECT user_id FROM Users WHERE username = 'alice123'), 'max', 'medium'),
-    ((SELECT user_id FROM Users WHERE username = 'carol123'), 'bella', 'small'),
-    ((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
-    ((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
-    ((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
+        INSERT INTO Dogs (owner_id, name, size)
+        VALUES
+        ((SELECT user_id FROM Users WHERE username = 'alice123'), 'max', 'medium'),
+        ((SELECT user_id FROM Users WHERE username = 'carol123'), 'bella', 'small'),
+        ((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
+        ((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
+        ((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
 
-    `);
+        `);
+    }
 
     await db.execute(`
     INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
