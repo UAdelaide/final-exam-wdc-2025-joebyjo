@@ -111,14 +111,34 @@ var app = express();
 
     // insert dummy data into table
     await db.execute(`
-      CREATE TABLE Users (
-        user_id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(50) UNIQUE NOT NULL,
-        email VARCHAR(100) UNIQUE NOT NULL,
-        password_hash VARCHAR(255) NOT NULL,
-        role ENUM('owner', 'walker') NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
+      INSERT INTO Users (username, email, password_hash, role)
+    VALUES
+    ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+    ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+    ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+    ('joe', 'joe@example.com', 'hashed69', 'owner'),
+    ('messi', 'messi@example.com', 'hashed10', 'owner');
+    `);
+
+    await db.execute(`
+      INSERT INTO Dogs (owner_id, name, size)
+VALUES
+((SELECT user_id FROM Users WHERE username = 'alice123'), 'max', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'bella', 'small'),
+((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
+((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
+
+    `);
+
+    await db.execute(`
+      INSERT INTO Users (username, email, password_hash, role)
+    VALUES
+    ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+    ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+    ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+    ('joe', 'joe@example.com', 'hashed69', 'owner'),
+    ('messi', 'messi@example.com', 'hashed10', 'owner');
     `);
 
   } catch (err) {
