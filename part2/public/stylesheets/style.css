@@ -104,8 +104,8 @@ button:hover {
     float: right;
 }
 
-#ask input[type="text"], #ask textarea {
-    width: 90%;
+input {
+    width: %;
     margin-bottom: 0.5em;
 }
 
