@@ -73,7 +73,7 @@
           try {
             const me = await axios.get('/api/users/me');
             const id = me.data.user_id;
-            user=id;
+            user.value =id;
           } catch (err) {
             error.value = err.message;
             message.value = '';
