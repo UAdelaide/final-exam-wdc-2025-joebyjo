@@ -40,7 +40,7 @@ router.get('/walkers/summary', async function (req, res, next) {
             `SELECT COUNT(*) FROM USERS U
             INNER JOIN WalkApplications WA on WA.walker_id = U.user_id
             INNER JOIN WalkRequest WR on WR.request_id=WA.request_id
-            WHERE 
+            WHERE WR
             `
         );
 
