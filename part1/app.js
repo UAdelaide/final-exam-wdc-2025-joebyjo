@@ -125,6 +125,8 @@ var app = express();
         `);
     }
 
+    const [userCount] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    if (rows[0].count === 0) {
     await db.execute(`
     INSERT INTO Dogs (owner_id, name, size)
     VALUES
