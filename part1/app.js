@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
-console.log(db.query('select * from User'));
+console.log(await db.query('select * from Users'));
 
 app.use(logger('dev'));
 app.use(express.json());
