@@ -110,7 +110,7 @@
         async function loadDogs() {
           try {
             const res = await axios.get('/api/users/dogs');
-            res.dogs = res.data;
+            dogs.value = res.data; 
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
