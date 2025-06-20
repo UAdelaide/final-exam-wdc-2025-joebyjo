@@ -63,7 +63,7 @@ router.post('/logout', (req, res) => {
     req.session.destroy(() => {
         // clearing cookies to logout user
         res.clearCookie('connect.sid');
-        return res.redirect('/');
+        return res.status(200).json({msg});
     });
 });
 
