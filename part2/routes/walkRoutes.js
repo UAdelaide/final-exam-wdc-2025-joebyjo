@@ -65,8 +65,8 @@ router.get('/dogs', async (req, res) => {
     const [rows] = await db.query(`
       SELECT dog_id, name FROM Dogs D
       INNER JOIN Users U on U.user_id=D.owner_id
-      WHERE D.owner_id = 
-    `);
+      WHERE D.owner_id = ?
+    `,[]);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
