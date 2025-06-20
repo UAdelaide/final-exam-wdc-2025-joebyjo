@@ -37,7 +37,7 @@
             },
             methods: {
                 async getDog() {
-                const res = await fetch('https://dog.ceo/api/breeds/image/random');
+                const res = await axios.get('https://dog.ceo/api/breeds/image/random');
                 const data = res.json();
                 this.dogImg = data.message;
                 }
