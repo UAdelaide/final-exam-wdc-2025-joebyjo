@@ -5,7 +5,7 @@ const db = require('../services/db');
 
 
 router.get('/', async function (req, res, next) {
-    
+    res.sendFile(path.join(__dirname, '..'));
 });
 
 
