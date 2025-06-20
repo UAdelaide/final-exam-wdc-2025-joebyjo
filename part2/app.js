@@ -9,13 +9,13 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(session({ // for sessions
-    secret: 'secretsecret',
+app.use(session({
+    secret: 'b706835de79a2b4e80506f582af3676ac8361638',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }
-    }
 }));
+
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
