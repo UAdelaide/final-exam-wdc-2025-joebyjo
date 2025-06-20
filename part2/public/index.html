@@ -12,7 +12,7 @@
       width: 40%;
     }
 
-    .login-container {
+    .container {
       display:flex;
       flex-direction: column;
       justify-content:center;
@@ -22,20 +22,20 @@
 <body class="bg-light">
 
   <div id="app" class="container py-5">
-    <div class="login-container">
-      <h2 class="mb-3 text-primary">Welcome to the Dog Walking Service!</h2>
-      <div class="mb-3">
-        <label>Username</label>
-        <input v-model="username" class="form-control" required />
-      </div>
-      <div class="mb-3">
-        <label>Password</label>
-        <input type="password" v-model="password" class="form-control" required />
-      </div>
 
-      <button type="submit" class="btn btn-primary">Log In</button>
-      <p v-if="error" class="text-danger mt-3">{{ error }}</p>
+    <h2 class="mb-3 text-primary">Welcome to the Dog Walking Service!</h2>
+    <div class="mb-3">
+      <label>Username</label>
+      <input v-model="username" class="form-control" required />
     </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" v-model="password" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Log In</button>
+    <p v-if="error" class="text-danger mt-3">{{ error }}</p>
+
   </div>
 
   <script>
