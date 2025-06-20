@@ -39,7 +39,7 @@ router.get('/walkers/summary', async function (req, res, next) {
         const [completedWalks] = await db.query(
             `SELECT COUNT(*) FROM USERS U
             INNER JOIN WalkApplications WA on WA.walker_id = U.user_id
-            INNER JOIN Walk
+            INNER JOIN WalkRequest
             `
         );
 
