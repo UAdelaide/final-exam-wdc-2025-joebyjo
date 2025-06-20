@@ -72,3 +72,16 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
 
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+VALUES
+((SELECT dog_id FROM Dogs WHERE name = 'max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')),'2025-06-10 08:00:00', 30, 'parklands', 'open'),
+
+((SELECT dog_id FROM Dogs WHERE name = 'bella' AND owner_id = (SELECT user_id FROM Users WHERE username = 'carol123')),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+
+((SELECT dog_id FROM Dogs WHERE name = 'abc' AND owner_id = (SELECT user_id FROM Users WHERE username = 'joe')),'2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+
+((SELECT dog_id FROM Dogs WHERE name = 'xyz' AND owner_id = (SELECT user_id FROM Users WHERE username = 'joe')),
+ '2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted'),
+
+((SELECT dog_id FROM Dogs WHERE name = 'ghi' AND owner_id = (SELECT user_id FROM Users WHERE username = 'messi')),
+ '2025-06-10 09:30:00', 45, 'beachside Ave', 'accepted');
