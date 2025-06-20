@@ -110,8 +110,8 @@
 
         async function loadWalks() {
           try {
-            const res = await fetch('/api/users/dogs');
-
+            const res = await axios.get('/api/users/dogs');
+            res.dogs = 
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
