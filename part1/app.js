@@ -135,7 +135,6 @@ var app = express();
         ((SELECT user_id FROM Users WHERE username = 'joe'), 'abc', 'large'),
         ((SELECT user_id FROM Users WHERE username = 'joe'), 'xyz', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'messi'), 'ghi', 'small');
-
         `);
     }
 
