@@ -63,7 +63,7 @@
             <th scope="col">Photo</th>
           </tr>
         </thead>
-        <p v-if=""></p>
+        <p v-if="!loading">Loading registered dogs</p>
         <tbody>
           <tr v-if="loading" v-for="dog in dogs" :key="dog.dog_id">
             <th>{{dog.dog_id}}</th>
