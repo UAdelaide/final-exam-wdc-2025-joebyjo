@@ -114,8 +114,6 @@
           try {
             // get all dogs from database
             const res = await axios.get('/api/walks/dogs');
-            const [data] = res.data;
-
             this.dogs = res.data;
 
           } catch (err) {
