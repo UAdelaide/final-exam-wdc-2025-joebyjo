@@ -122,9 +122,12 @@
           }
         },
         async getDogImage() {
-                const res = await axios.get('https://dog.ceo/api/breeds/image/random');
-                const data = res.data;
-                return data.message;
+          try {
+            const res = await axios.get('https://dog.ceo/api/breeds/image/random');
+            return res.data.message;
+          } catch {
+            return 'https://via.placeholder.com/100?text=No+Image'; // fallback
+          }
         }
       },
       mounted() {
