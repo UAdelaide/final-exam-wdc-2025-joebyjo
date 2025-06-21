@@ -24,8 +24,8 @@
       margin-top: 2rem;
     }
 
-    #dog-table>td>img {
-
+    .dog-image {
+      
     }
   </style>
 </head>
@@ -67,7 +67,7 @@
             <td>{{dog.dog_name}}</td>
             <td>{{dog.size}}</td>
             <td>{{dog.owner_id}}</td>
-            <td><img :src="dog.dog_image" :alt="dog.dog_name"></td>
+            <td><img class="dog-image" :src="dog.dog_image" :alt="dog.dog_name"></td>
           </tr>
         </tbody>
       </table>
