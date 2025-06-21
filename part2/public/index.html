@@ -122,6 +122,9 @@
             this.error = err;
           }
         }
+      },
+      mounted(): {
+        this.getDogs();
       }
     }).mount('#app');
   </script>
