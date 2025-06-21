@@ -23,6 +23,8 @@
     #dog-table {
       margin-top: 2rem;
     }
+
+    #dog-table 
   </style>
 </head>
 <body class="bg-light">
@@ -116,7 +118,7 @@
             // get all dogs from database
             const res = await axios.get('/api/walks/dogs');
             const dogList = res.data;
-            
+
             for (const dog of dogList) {
               dog.dog_image = await this.getDogImage();
             }
