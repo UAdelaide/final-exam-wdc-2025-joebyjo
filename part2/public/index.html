@@ -115,7 +115,15 @@
           try {
             // get all dogs from database
             const res = await axios.get('/api/walks/dogs');
-            this.dogs = res.data;
+            const dogList = res.data;
+
+            // For each dog, assign a random image
+            for (const dog of dogList) {
+              dog.dog_image = await this.getDogImage();
+            }
+
+    this.dogs = dogList;
+
 
           } catch (err) {
             this.error = err;
