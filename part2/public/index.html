@@ -124,8 +124,8 @@
         async getDogImage() {
                 const res = await axios.get('https://dog.ceo/api/breeds/image/random');
                 const data = res.data;
-                this.dogImg = data.message;
-        };
+                return data.message;
+        }
       },
       mounted() {
         this.getDogs();
