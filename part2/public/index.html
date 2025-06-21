@@ -108,6 +108,28 @@
           } catch (err) {
             this.error = err;
           }
+        },
+        async getDogs() {
+
+          try {
+            // send post request with username
+            const res = await axios.post('/api/users/login', {
+                username: this.username,
+                password: this.password
+            });
+            const data = res.data;
+
+            // redirecting to correct page depending on role
+            if (data.user.role=='owner') {
+                window.location.href = '/owner-dashboard.html';
+            } else if (data.user.role=='walker') {
+                window.location.href = '/walker-dashboard.html';
+            }
+
+
+          } catch (err) {
+            this.error = err;
+          }
         }
       }
     }).mount('#app');
