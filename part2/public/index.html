@@ -113,7 +113,7 @@
 
           try {
             // get all dogs from database
-            const res = await axios.post('/api/walk/dogs');
+            const res = await axios.get('/api/walk/dogs');
             const data = res.data;
 
             dogs = data;
