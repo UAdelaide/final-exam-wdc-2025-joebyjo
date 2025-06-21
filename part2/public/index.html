@@ -89,7 +89,8 @@
           username: '',
           password: '',
           error: '',
-          dogs: []
+          dogs: [],
+          loading: false
         };
       },
 
@@ -129,6 +130,7 @@
 
             this.dogs = dogList;
 
+            
 
           } catch (err) {
             this.error = err;
