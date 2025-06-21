@@ -120,7 +120,7 @@
 
           try {
             // get all dogs from database
-            const res = await axios.get('/api/walks/dogs');
+            const res = await axios.get('/api/dogs');
             const dogList = res.data;
 
             for (const dog of dogList) {
