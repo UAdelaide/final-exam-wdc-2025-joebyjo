@@ -116,7 +116,7 @@
             const res = await axios.get('/api/walks/dogs');
             const data = res.data;
 
-            this.dogs = data;
+            [this.dogs] = data;
 
           } catch (err) {
             this.error = err;
