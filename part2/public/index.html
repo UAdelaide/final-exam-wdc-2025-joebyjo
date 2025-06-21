@@ -52,7 +52,7 @@
 
     <div id='dog-table'>
       <h2>All Registered Dogs</h2>
-
+      <p v-if="!loading">Loading dog list...</p>
       <table v-if="loading" class="table table-striped">
         <thead>
           <tr>
@@ -73,7 +73,7 @@
           </tr>
         </tbody>
       </table>
-      <p v-if="!loading">Loading dog list...</p>
+
     </div>
 
   </div>
