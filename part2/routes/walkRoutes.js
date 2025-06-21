@@ -62,6 +62,8 @@ router.post('/:id/apply', async (req, res) => {
 // added route to get all registered dogs
 router.get('/dogs', async function (req, res, next) {
     try {
+
+    
         const [rows] = await db.query(
             `SELECT D.dog_id, D.name AS dog_name, D.size, D.owner_id
             FROM Dogs D`
