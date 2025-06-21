@@ -59,7 +59,7 @@ router.post('/:id/apply', async (req, res) => {
   }
 });
 
-
+// added route to get all registered dogs
 router.get('/dogs', async function (req, res, next) {
     try {
         const [rows] = await db.query(
