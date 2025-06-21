@@ -39,9 +39,7 @@
     <button @click="login()" class="btn btn-primary">Log In</button>
     <p v-if="error" class="text-danger mt-3">{{ error }}</p>
 
-  </div>
-
-  <table class="table table-striped">
+      <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Dog ID</th>
@@ -61,6 +59,10 @@
     </tr>
   </tbody>
 </table>
+
+  </div>
+
+
 
   <script>
     const { createApp } = Vue;
