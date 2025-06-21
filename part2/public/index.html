@@ -112,7 +112,7 @@
         async getDogs() {
 
           try {
-            // send post request with username
+            // get all dogs from database
             const res = await axios.post('/api/walk/dogs');
             const data = res.data;
 
